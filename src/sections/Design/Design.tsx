@@ -26,7 +26,7 @@ export const Design = () => {
       id: 'ux1',
       title: t.uxWork1Title || 'Habits App',
       description: t.uxWork1Desc || 'Maquetado completo de una app móvil de hábitos: listado de rutinas, creación de hábitos, seguimiento diario y estadísticas de progreso.',
-      thumbnail: 'src/design/ux-ui/habits/cover.png',
+      thumbnail: '/design/ux-ui/habits/cover.png',
       images: [
         '/design/ux-ui/habits/1.png',
         '/design/ux-ui/habits/2.png',
