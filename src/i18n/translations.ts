@@ -223,6 +223,11 @@ export const translations = {
     letsConnect: "¡Conectemos!",
     contactSubtitle: "Estoy disponible para nuevos proyectos y colaboraciones",
     allRightsReserved: "Todos los derechos reservados.",
+
+    location: "Ubicación",
+ageLabel: "Edad",
+status: "Estado",
+hobbiesTitle: "Hobbies",
   },
   en: {
     // Navbar
@@ -444,6 +449,10 @@ export const translations = {
     designFocusTitle: "My Design Focus",
     designFocusDesc: "Design is not just aesthetics, it's user experience, functionality and innovation. Every project is an opportunity to transform ordinary interfaces into extraordinary experiences.",
 
+    location: "Location",
+ageLabel: "Age",
+status: "Status",
+hobbiesTitle: "Hobbies",
     // Footer
     letsConnect: "Let's Connect!",
     contactSubtitle: "I'm available for new projects and collaborations",
