@@ -199,7 +199,7 @@ export const Hero = () => {
             `}
           >
      <img
-  src={theme === 'dark' ? 'src/assets/Feri.png' : 'src/assets/FeriAzul.png'}
+  src={theme === 'dark' ? '/Feri.png' : '/FeriAzul.png'}
   alt="Fernanda Suárez"
   className="w-full h-full object-cover"
 />

@@ -12,12 +12,12 @@ export const ParallaxGallery = () => {
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const images: GalleryImage[] = [
-    { id: '1', image: 'src/assets/gallery/1.jpeg', color: '#3B82F6' },
-    { id: '2', image: 'src/assets/gallery/2.jpeg', color: '#10B981' },
-    { id: '3', image: 'src/assets/gallery/3.jpeg', color: '#8B5CF6' },
-    { id: '4', image: 'src/assets/gallery/4.png', color: '#F59E0B' },
-    { id: '5', image: 'src/assets/gallery/5.png', color: '#EF4444' },
-    { id: '6', image: 'src/assets/gallery/6.png', color: '#06B6D4' },
+    { id: '1', image: '/gallery/1.jpeg', color: '#3B82F6' },
+    { id: '2', image: '/gallery/2.jpeg', color: '#10B981' },
+    { id: '3', image: '/gallery/3.jpeg', color: '#8B5CF6' },
+    { id: '4', image: '/gallery/4.png', color: '#F59E0B' },
+    { id: '5', image: '/gallery/5.png', color: '#EF4444' },
+    { id: '6', image: '/gallery/6.png', color: '#06B6D4' },
     // { id: '7', image: '/gallery/7.jpg', color: '#EC4899' },
     // { id: '8', image: '/gallery/8.jpg', color: '#F97316' },
     // { id: '9', image: '/gallery/9.jpg', color: '#14B8A6' },

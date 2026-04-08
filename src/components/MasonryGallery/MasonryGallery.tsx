@@ -13,14 +13,14 @@ export const MasonryGallery = () => {
   const { theme } = useTheme();
 
   const galleryItems: GalleryItem[] = [
-    { id: '1', image: 'src/assets/galleryTwo/1.png', title: 'UI Design', category: 'Design', span: 'large' },
-    { id: '2', image: 'src/assets/galleryTwo/2.jpg', title: 'Illustration', category: 'Art', span: 'small', comingSoon: true },
-    { id: '3', image: 'src/assets/galleryTwo/3.jpg', title: 'Branding', category: 'Design', span: 'medium', comingSoon: true },
-    { id: '4', image: 'src/assets/galleryTwo/4.png', title: '3D Art', category: '3D', span: 'small' },
-    { id: '5', image: 'src/assets/galleryTwo/5.jpg', title: 'Mobile App', category: 'Development', span: 'large', comingSoon: true },
-    { id: '6', image: 'src/assets/galleryTwo/6.jpg', title: 'Icon Set', category: 'Design', span: 'small', comingSoon: true },
-    { id: '7', image: 'src/assets/galleryTwo/7.png', title: 'Web Design', category: 'Design', span: 'medium' },
-    { id: '8', image: 'src/assets/galleryTwo/8.png', title: 'Map design', category: 'Art', span: 'small' },
+    { id: '1', image: '/galleryTwo/1.png', title: 'UI Design', category: 'Design', span: 'large' },
+    { id: '2', image: '/galleryTwo/2.jpg', title: 'Illustration', category: 'Art', span: 'small', comingSoon: true },
+    { id: '3', image: '/galleryTwo/3.jpg', title: 'Branding', category: 'Design', span: 'medium', comingSoon: true },
+    { id: '4', image: '/galleryTwo/4.png', title: '3D Art', category: '3D', span: 'small' },
+    { id: '5', image: '/galleryTwo/5.jpg', title: 'Mobile App', category: 'Development', span: 'large', comingSoon: true },
+    { id: '6', image: '/galleryTwo/6.jpg', title: 'Icon Set', category: 'Design', span: 'small', comingSoon: true },
+    { id: '7', image: '/galleryTwo/7.png', title: 'Web Design', category: 'Design', span: 'medium' },
+    { id: '8', image: '/galleryTwo/8.png', title: 'Map design', category: 'Art', span: 'small' },
   ];
 
   const getSpanClass = (span?: string) => {

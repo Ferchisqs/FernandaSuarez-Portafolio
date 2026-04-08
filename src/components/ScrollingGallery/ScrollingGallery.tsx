@@ -12,14 +12,14 @@ export const ScrollingGallery = () => {
   const { theme } = useTheme();
 
   const galleryItems: GalleryItem[] = [
-    { id: '1', image: 'src/assets/galleryThree/1.png', title: 'Character', color: '#3B82F6' },
-    { id: '2', image: 'src/assets/galleryThree/2.jpg', title: 'Character Design', color: '#10B981', comingSoon: true },
-    { id: '3', image: 'src/assets/galleryThree/3.jpg', title: 'Brand Identity', color: '#F59E0B', comingSoon: true },
-    { id: '4', image: 'src/assets/galleryThree/4.png', title: 'Portrait', color: '#8B5CF6' },
-    { id: '5', image: 'src/assets/galleryThree/5.jpg', title: 'App Design', color: '#EC4899', comingSoon: true },
-    { id: '6', image: 'src/assets/galleryThree/6.jpg', title: 'Illustration', color: '#06B6D4', comingSoon: true },
-    { id: '7', image: 'src/assets/galleryThree/7.jpg', title: 'Typography', color: '#EF4444', comingSoon: true },
-    { id: '8', image: 'src/assets/galleryThree/8.jpg', title: 'Icon Set', color: '#14B8A6', comingSoon: true },
+    { id: '1', image: '/galleryThree/1.png', title: 'Character', color: '#3B82F6' },
+    { id: '2', image: '/galleryThree/2.jpg', title: 'Character Design', color: '#10B981', comingSoon: true },
+    { id: '3', image: '/galleryThree/3.jpg', title: 'Brand Identity', color: '#F59E0B', comingSoon: true },
+    { id: '4', image: '/galleryThree/4.png', title: 'Portrait', color: '#8B5CF6' },
+    { id: '5', image: '/galleryThree/5.jpg', title: 'App Design', color: '#EC4899', comingSoon: true },
+    { id: '6', image: '/galleryThree/6.jpg', title: 'Illustration', color: '#06B6D4', comingSoon: true },
+    { id: '7', image: '/galleryThree/7.jpg', title: 'Typography', color: '#EF4444', comingSoon: true },
+    { id: '8', image: '/galleryThree/8.jpg', title: 'Icon Set', color: '#14B8A6', comingSoon: true },
   ];
 
   const duplicatedItems = [...galleryItems, ...galleryItems];

@@ -27,7 +27,7 @@ export const Certificates = () => {
       title: 'Diseño UX/UI',
       issuer: 'Google',
       date: '2024',
-      image: 'src/assets/certificates/DiseñoUX.png',
+      image: '/certificates/DiseñoUX.png',
       credentialUrl: '#',
       skills: ['User Research', 'Wireframing', 'Prototyping', 'Figma']
     },
@@ -36,7 +36,7 @@ export const Certificates = () => {
       title: 'Primeros pasos en UX Design',
       issuer: 'Google',
       date: '2024',
-      image: 'src/assets/certificates/Empatizar,definir e idear.png',
+      image: '/certificates/Empatizar,definir e idear.png',
       credentialUrl: '#',
       skills: ['Figma', 'User Research', 'Prototyping']
     },
@@ -45,7 +45,7 @@ export const Certificates = () => {
       title: 'Crear Interfaces de Usuario',
       issuer: 'Google',
       date: '2024',
-      image: 'src/assets/certificates/CrearInterfaces.png',
+      image: '/certificates/CrearInterfaces.png',
       credentialUrl: '#',
       skills: ['UI Design', 'Wireframes', 'Responsive Design']
     },
@@ -54,7 +54,7 @@ export const Certificates = () => {
       title: 'Experiencia de Usuario',
       issuer: 'Google',
       date: '2024',
-      image: 'src/assets/certificates/ExperienciaUsuario.png',
+      image: '/certificates/ExperienciaUsuario.png',
       credentialUrl: '#',
       skills: ['Figma', 'UX/UI', 'ClipStuio', 'Framer']
     },
@@ -63,7 +63,7 @@ export const Certificates = () => {
       title: 'Prototipos en Figma',
       issuer: 'Google',
       date: '2024',
-      image: 'src/assets/certificates/Figma.png',
+      image: '/certificates/Figma.png',
       credentialUrl: '#',
       skills: ['Figma', 'UX/UI', 'Blender', 'Framer']
     },
@@ -72,7 +72,7 @@ export const Certificates = () => {
       title: 'Design Thinking Fundamentals',
       issuer: 'Google',
       date: '2024',
-      image: 'src/assets/certificates/DiseñoUX.png',
+      image: '/certificates/DiseñoUX.png',
       credentialUrl: '#',
       skills: ['Design Thinking', 'Innovation', 'Problem Solving']
     }
@@ -85,7 +85,7 @@ export const Certificates = () => {
       title: 'Networking Basics',
       issuer: 'CISCO',
       date: '2023',
-      image: 'src/assets/certificates/NetworkingBasics.png',
+      image: '/certificates/NetworkingBasics.png',
       credentialUrl: '#',
       skills: ['Networking', 'TCP/IP', 'Router', 'Switch']
     },
@@ -94,7 +94,7 @@ export const Certificates = () => {
       title: 'Introduction to Cybersecurity',
       issuer: 'CISCO',
       date: '2023',
-      image: 'src/assets/certificates/IntroductionCybersecurity.png',
+      image: '/certificates/IntroductionCybersecurity.png',
       credentialUrl: '#',
       skills: ['Cybersecurity', 'Network Security', 'Threat Protection']
     },
@@ -103,7 +103,7 @@ export const Certificates = () => {
       title: 'Operating Systems Basics',
       issuer: 'CISCO',
       date: '2023',
-      image: 'src/assets/certificates/SystemsBasics.png',
+      image: '/certificates/SystemsBasics.png',
       credentialUrl: '#',
       skills: ['Operating Systems', 'Linux', 'Windows', ]
     },
@@ -112,7 +112,7 @@ export const Certificates = () => {
       title: 'Cloud Foundations',
       issuer: 'AWS Academy',
       date: '2023',
-      image: 'src/assets/certificates/CloudFoundations.png',
+      image: '/certificates/CloudFoundations.png',
       credentialUrl: '#',
       skills: ['Cloud Computing', 'AWS', 'Infrastructure', 'Services']
     },
@@ -121,7 +121,7 @@ export const Certificates = () => {
       title: 'Introduction to Cloud Semester 1',
       issuer: 'AWS Academy',
       date: '2023',
-      image: 'src/assets/certificates/CloudSemester1.png',
+      image: '/certificates/CloudSemester1.png',
       credentialUrl: '#',
       skills: ['Cloud Concepts', 'AWS Services', 'Architecture', 'Best Practices']
     },
@@ -130,7 +130,7 @@ export const Certificates = () => {
       title: 'Cloud Architecting',
       issuer: 'AWS Academy',
       date: '2023',
-      image: 'src/assets/certificates/CloudArchitecting.png',
+      image: '/certificates/CloudArchitecting.png',
       credentialUrl: '#',
       skills: ['Architecture', 'Cloud Design', 'Scalability', 'High Availability']
     }

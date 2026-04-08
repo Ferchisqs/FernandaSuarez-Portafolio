@@ -89,13 +89,13 @@ export const About = () => {
               >
                 {theme === 'dark' ? (
                   <img
-                    src="src/assets/photo-dark.jpeg"
+                    src="/photo-dark.jpeg"
                     alt="Fernanda Suárez - Dark Mode"
                     className="w-full h-full object-cover"
                   />
                 ) : (
                   <img
-                    src="src/assets/photo-light.jpeg"
+                    src="/photo-light.jpeg"
                     alt="Fernanda Suárez - Light Mode"
                     className="w-full h-full object-cover"
                   />
