@@ -285,46 +285,47 @@ export const Experience = () => {
       </div>
 
       {/* Modal con información completa - MEJORADO */}
-      {selectedCompany && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto"
-          onClick={closeModal}
-        >
-          <div
-            className="max-w-4xl w-full my-8 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Botón cerrar - MEJORADO: Mejor posicionamiento y margen */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all z-50 backdrop-blur-sm"
-              aria-label="Cerrar modal"
-            >
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+     {/* Modal con información completa */}
+{selectedCompany && (
+  <div
+    className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4 overflow-y-auto"
+    onClick={closeModal}
+  >
+    {/* Botón cerrar FIJO — siempre visible arriba a la derecha */}
+    <button
+      onClick={closeModal}
+      className="fixed top-4 right-4 p-3 bg-white/20 hover:bg-white/40 rounded-full transition-all z-[60] backdrop-blur-sm shadow-lg"
+      aria-label="Cerrar modal"
+    >
+      <svg
+        className="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
 
-            {/* Contenido del modal - MEJORADO: Más padding superior para evitar que el icono se corte */}
-            <div
-              className={`p-8 md:p-12 pt-16 md:pt-16 rounded-3xl ${
-                theme === 'dark' ? 'bg-gray-900' : 'bg-white'
-              }`}
-              style={{
-                boxShadow: `0 20px 60px ${selectedCompany.color}60`,
-                border: `2px solid ${selectedCompany.color}40`,
-              }}
-            >
+    <div
+      className="max-w-4xl w-full my-8"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Contenido del modal */}
+      <div
+        className={`p-8 md:p-12 rounded-3xl ${
+          theme === 'dark' ? 'bg-gray-900' : 'bg-white'
+        }`}
+        style={{
+          boxShadow: `0 20px 60px ${selectedCompany.color}60`,
+          border: `2px solid ${selectedCompany.color}40`,
+        }}
+      >
               {/* Header - MEJORADO */}
               <div className="text-center mb-8">
                 <div
