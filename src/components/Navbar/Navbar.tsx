@@ -1,8 +1,10 @@
+import { useState } from 'react'; // Única importación añadida
 import { useTheme } from '../../context/useTheme';
 import { translations } from '../../i18n/translations';
 
 export const Navbar = () => {
   const { theme, toggleTheme, language, toggleLanguage } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para abrir/cerrar
   const t = translations[language];
 
   const menuItems = [
@@ -54,9 +56,8 @@ export const Navbar = () => {
               </a>
             ))}
 
-            {/* Controls */}
+            {/* Controls - SE MANTIENEN IGUAL */}
             <div className="flex items-center gap-3 ml-4 border-l pl-4 border-gray-300 dark:border-gray-600">
-              {/* GitHub */}
               <a
                 href="https://github.com/Ferchisqs"
                 target="_blank"
@@ -71,7 +72,6 @@ export const Navbar = () => {
                 </svg>
               </a>
 
-              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/maria-fernanda-quezada-suárez-b7100024a"
                 target="_blank"
@@ -86,45 +86,57 @@ export const Navbar = () => {
                 </svg>
               </a>
 
-              {/* Language Toggle */}
               <button
                 onClick={toggleLanguage}
                 className={`px-3 py-1 rounded-lg font-medium transition-all hover:scale-105 ${
-                  theme === 'dark'
-                    ? 'bg-gray-800 text-white hover:bg-gray-700'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700'
                 }`}
-                aria-label="Toggle language"
               >
                 {language.toUpperCase()}
               </button>
 
-              {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
                 className={`p-2 rounded-lg transition-all hover:scale-105 ${
-                  theme === 'dark'
-                    ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  theme === 'dark' ? 'bg-gray-800 text-yellow-400' : 'bg-gray-100 text-gray-700'
                 }`}
-                aria-label="Toggle theme"
               >
                 {theme === 'dark' ? '☀️' : '🌙'}
               </button>
             </div>
           </div>
 
+          {/* Hamburguesa con funcionalidad */}
           <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`lg:hidden p-2 rounded-lg ${
               theme === 'dark' ? 'text-white' : 'text-gray-900'
             }`}
-            aria-label="Open menu"
+            aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
             </svg>
           </button>
         </div>
+
+        {/* Menú Desplegable Móvil (NUEVO) */}
+        {isMenuOpen && (
+          <div className="lg:hidden flex flex-col gap-4 mt-4 pb-4 border-t border-gray-100 dark:border-gray-800">
+            {menuItems.map((item, idx) => (
+              <a
+                key={idx}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-sm font-medium pt-3 ${
+                  theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
