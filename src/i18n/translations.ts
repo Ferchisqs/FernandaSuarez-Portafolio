@@ -79,7 +79,7 @@ export const translations = {
     
     // UX/UI Work
     uxWork1Title: "Dashboard App",
-    uxWork1Desc: "Diseño de interfaz para aplicación de análisis de datos con gráficas interactivas.",
+    uxWork1Desc: "'Maquetado completo de una app móvil de hábitos: listado de rutinas, creación de hábitos, seguimiento diario y estadísticas de progreso.',",
     uxWork2Title: "E-commerce Mobile",
     uxWork2Desc: "App móvil de comercio electrónico con sistema de pagos y seguimiento de pedidos.",
     uxWork3Title: "Banking App",
@@ -309,7 +309,7 @@ hobbiesTitle: "Hobbies",
     
     // UX/UI Work
     uxWork1Title: "Dashboard App",
-    uxWork1Desc: "Data analysis app interface design with interactive charts.",
+    uxWork1Desc: "Complete layout of a mobile habits app: routine listing, habit creation, daily tracking and progress statistics.",
     uxWork2Title: "E-commerce Mobile",
     uxWork2Desc: "E-commerce mobile app with payment system and order tracking.",
     uxWork3Title: "Banking App",

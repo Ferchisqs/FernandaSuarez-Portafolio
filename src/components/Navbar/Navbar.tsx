@@ -10,9 +10,9 @@ export const Navbar = () => {
   const menuItems = [
     { label: t.home, href: '#home' },
     { label: t.projects, href: '#projects' },
-    { label: t.design, href: '#design' },
-    { label: t.illustration, href: '#design' },
-    { label: t.experiments, href: '#design' },
+    { label: t.design, href: '#design', category: 'ux-ui' },           // ← agrega category
+    { label: t.illustration, href: '#design', category: 'illustration' },
+    { label: t.experiments, href: '#design', category: '3d' },
     { label: t.experience, href: '#experience' },
     { label: t.skills, href: '#skills' },
     { label: t.certificates, href: '#certificates' },
