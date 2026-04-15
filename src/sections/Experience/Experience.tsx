@@ -24,7 +24,7 @@ export const Experience = () => {
       id: 'pandaletec',
       name: 'PANDALETEC',
       position: language === 'es' ? 'Desarrollador Full Stack & Diseñador UI/UX' : 'Full Stack Developer & UI/UX Designer',
-      period: language === 'es' ? 'Sep 2024 – Dic 2024' : 'Sep 2024 – Dec 2024',
+      period: language === 'es' ? 'Sep 2025 – Dic 2025' : 'Sep 2025 – Dec 2025',
       color: theme === 'dark' ? '#EC4899' : '#8B5CF6',
       contributions: [
         language === 'es' 
@@ -54,7 +54,7 @@ export const Experience = () => {
       id: 'tzedaka',
       name: 'TZEDAKÁ',
       position: language === 'es' ? 'Desarrollador Frontend & Diseñador UI/UX' : 'Frontend Developer & UI/UX Designer',
-      period: language === 'es' ? 'Mar 2024 – Ago 2024' : 'Mar 2024 – Aug 2024',
+      period: language === 'es' ? 'Ago 2024 – Sep 2024' : 'Ago 2024 – Sep 2024',
       color: '#3B82F6',
       contributions: [
         language === 'es'
@@ -84,7 +84,7 @@ export const Experience = () => {
       id: 'hightech',
       name: 'Hightech',
       position: language === 'es' ? 'Desarrollador Junior - Primera Estancia Universitaria' : 'Junior Developer - First University Internship',
-      period: language === 'es' ? 'Abr 2024 – May 2024' : 'Apr 2024 – May 2024',
+      period: language === 'es' ? 'Mar 2024 – Abr 2024' : 'Mar 2024 – Apr 2024',
       color: theme === 'dark' ? '#EF4444' : '#3B82F6',
       contributions: [
         language === 'es'
