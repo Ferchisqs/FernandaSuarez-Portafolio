@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useTheme } from '../../context/useTheme';
-import { translations } from '../../i18n/translations';
+import { useState, useEffect } from "react";
+import { useTheme } from "../../context/useTheme";
+import { translations } from "../../i18n/translations";
 
 interface GalleryProject {
   id: string;
@@ -8,213 +8,255 @@ interface GalleryProject {
   description: string;
   thumbnail: string;
   images: string[];
-  category: 'ux-ui' | 'illustration' | '3d';
+  category: "ux-ui" | "illustration" | "3d";
   comingSoon?: boolean;
 }
 
 export const Design = () => {
   const { theme, language } = useTheme();
   const t = translations[language];
-  const [selectedCategory, setSelectedCategory] = useState<'ux-ui' | 'illustration' | '3d'>('ux-ui');
+  const [selectedCategory, setSelectedCategory] = useState<
+    "ux-ui" | "illustration" | "3d"
+  >("ux-ui");
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(null);
+  const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(
+    null,
+  );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+ // En Design.tsx dentro del useEffect de handleHashChange
+useEffect(() => {
+  const handleHashChange = () => {
+    const hash = window.location.hash;
+
+    if (hash === "#design-ux-ui") {
+      setSelectedCategory("ux-ui");
+    } else if (hash === "#design-illustration") {
+      setSelectedCategory("illustration");
+    } else if (hash === "#design-3d") {
+      setSelectedCategory("3d");
+    }
+
+    // Cambia .includes("#design-") por .startsWith("#design")
+    // Esto asegura que tanto "#design" como "#design-ux-ui" disparen el scroll
+    if (hash.startsWith("#design")) {
+      const element = document.getElementById("design");
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  handleHashChange();
+  window.addEventListener("hashchange", handleHashChange);
+  return () => window.removeEventListener("hashchange", handleHashChange);
+}, []);
+
+// OPCIONAL: Para que los botones internos también actualicen la URL
+const handleCategoryChange = (category: "ux-ui" | "illustration" | "3d") => {
+  setSelectedCategory(category);
+  // Esto actualiza la URL sin recargar, permitiendo que el usuario copie el link directo
+  window.history.pushState(null, "", `#design-${category}`);
+};
 
   const galleryProjects: GalleryProject[] = [
     // ── UX/UI ──────────────────────────────────────────────────────────────
     {
-      id: 'ux1',
-      title: t.uxWork1Title || 'Habits App',
-      description: t.uxWork1Desc || 'Maquetado completo de una app móvil de hábitos: listado de rutinas, creación de hábitos, seguimiento diario y estadísticas de progreso.',
-      thumbnail: '/design/ux-ui/habits/cover.png',
+      id: "ux1",
+      title: t.uxWork1Title || "Habits App",
+      description:
+        t.uxWork1Desc ||
+        "Maquetado completo de una app móvil de hábitos: listado de rutinas, creación de hábitos, seguimiento diario y estadísticas de progreso.",
+      thumbnail: "/design/ux-ui/habits/cover.png",
       images: [
-        '/design/ux-ui/habits/1.png',
-        '/design/ux-ui/habits/2.png',
-        '/design/ux-ui/habits/3.png',
-        '/design/ux-ui/habits/4.png',
-        '/design/ux-ui/habits/5.png',
-        '/design/ux-ui/habits/6.png',
+        "/design/ux-ui/habits/1.png",
+        "/design/ux-ui/habits/2.png",
+        "/design/ux-ui/habits/3.png",
+        "/design/ux-ui/habits/4.png",
+        "/design/ux-ui/habits/5.png",
+        "/design/ux-ui/habits/6.png",
       ],
-      category: 'ux-ui',
+      category: "ux-ui",
     },
     {
-      id: 'ux2',
-      title: t.uxWork2Title || 'E-commerce Dashboard',
-      description: t.uxWork2Desc || 'Panel administrativo para tienda online',
-      thumbnail: '/design/ux-ui/dashboard/cover.png',
-      images: ['/design/ux-ui/dashboard/1.png'],
-      category: 'ux-ui',
+      id: "ux2",
+      title: t.uxWork2Title || "E-commerce Dashboard",
+      description: t.uxWork2Desc || "Panel administrativo para tienda online",
+      thumbnail: "/design/ux-ui/dashboard/cover.png",
+      images: ["/design/ux-ui/dashboard/1.png"],
+      category: "ux-ui",
       comingSoon: true,
     },
     {
-      id: 'ux3',
-      title: t.uxWork3Title || 'Sistema de Diseño',
-      description: t.uxWork3Desc || 'Design system completo con componentes',
-      thumbnail: '/design/ux-ui/design-system/cover.png',
-      images: ['/design/ux-ui/design-system/1.png'],
-      category: 'ux-ui',
+      id: "ux3",
+      title: t.uxWork3Title || "Sistema de Diseño",
+      description: t.uxWork3Desc || "Design system completo con componentes",
+      thumbnail: "/design/ux-ui/design-system/cover.png",
+      images: ["/design/ux-ui/design-system/1.png"],
+      category: "ux-ui",
       comingSoon: true,
     },
     {
-      id: 'ux4',
-      title: t.uxWork4Title || 'App de Salud',
-      description: t.uxWork4Desc || 'Aplicación de seguimiento de salud y bienestar',
-      thumbnail: '/design/ux-ui/health-app/cover.png',
-      images: ['/design/ux-ui/health-app/1.png'],
-      category: 'ux-ui',
+      id: "ux4",
+      title: t.uxWork4Title || "App de Salud",
+      description:
+        t.uxWork4Desc || "Aplicación de seguimiento de salud y bienestar",
+      thumbnail: "/design/ux-ui/health-app/cover.png",
+      images: ["/design/ux-ui/health-app/1.png"],
+      category: "ux-ui",
       comingSoon: true,
     },
     {
-      id: 'ux5',
-      title: t.uxWork5Title || 'Red Social',
-      description: t.uxWork5Desc || 'Diseño de interfaz para plataforma social',
-      thumbnail: '/design/ux-ui/social/cover.png',
-      images: ['/design/ux-ui/social/1.png'],
-      category: 'ux-ui',
+      id: "ux5",
+      title: t.uxWork5Title || "Red Social",
+      description: t.uxWork5Desc || "Diseño de interfaz para plataforma social",
+      thumbnail: "/design/ux-ui/social/cover.png",
+      images: ["/design/ux-ui/social/1.png"],
+      category: "ux-ui",
       comingSoon: true,
     },
     {
-      id: 'ux6',
-      title: t.uxWork6Title || 'Landing Page',
-      description: t.uxWork6Desc || 'Diseño de página de aterrizaje responsive',
-      thumbnail: '/design/ux-ui/landing/cover.png',
-      images: ['/design/ux-ui/landing/1.png'],
-      category: 'ux-ui',
+      id: "ux6",
+      title: t.uxWork6Title || "Landing Page",
+      description: t.uxWork6Desc || "Diseño de página de aterrizaje responsive",
+      thumbnail: "/design/ux-ui/landing/cover.png",
+      images: ["/design/ux-ui/landing/1.png"],
+      category: "ux-ui",
       comingSoon: true,
     },
 
     // ── ILLUSTRATION ───────────────────────────────────────────────────────
     {
-      id: 'ill1',
-      title: t.illWork1Title || 'Iconos · Icons',
-      description: t.illWork1Desc || 'Set de iconos personalizados para aplicación de mascotas',
-      thumbnail: '/LogosMascotasVirtuales.png',
+      id: "ill1",
+      title: t.illWork1Title || "Iconos · Icons",
+      description:
+        t.illWork1Desc ||
+        "Set de iconos personalizados para aplicación de mascotas",
+      thumbnail: "/LogosMascotasVirtuales.png",
       images: [
-        '/LogosMascotasVirtuales.png',
-        '/design/illustration/icons/Elly_icon.png',
-        '/design/illustration/icons/Paxolotl_icon.png',
-        '/design/illustration/icons/Yami_icon.png',
-        '/design/illustration/icons/Dexter_icon.png',
+        "/LogosMascotasVirtuales.png",
+        "/design/illustration/icons/Elly_icon.png",
+        "/design/illustration/icons/Paxolotl_icon.png",
+        "/design/illustration/icons/Yami_icon.png",
+        "/design/illustration/icons/Dexter_icon.png",
       ],
-      category: 'illustration',
+      category: "illustration",
     },
     {
-      id: 'ill2',
-      title: t.illWork2Title || 'Mascotas Virtuales',
-      description: t.illWork2Desc || 'Diseño de personajes y mascotas digitales',
-      thumbnail: '/MascotasVirtuales.png',
+      id: "ill2",
+      title: t.illWork2Title || "Mascotas Virtuales",
+      description:
+        t.illWork2Desc || "Diseño de personajes y mascotas digitales",
+      thumbnail: "/MascotasVirtuales.png",
       images: [
-        '/MascotasVirtuales.png',
-        '/design/illustration/pets/Dexter.png',
-        '/design/illustration/pets/Paxolotl.png',
-        '/design/illustration/pets/Yami.png',
-        '/design/illustration/pets/Elly.png',
+        "/MascotasVirtuales.png",
+        "/design/illustration/pets/Dexter.png",
+        "/design/illustration/pets/Paxolotl.png",
+        "/design/illustration/pets/Yami.png",
+        "/design/illustration/pets/Elly.png",
       ],
-      category: 'illustration',
+      category: "illustration",
     },
     {
-      id: 'ill3',
-      title: t.illWork3Title || 'Logos',
-      description: t.illWork3Desc || 'Diseño de logotipos e identidad visual',
-      thumbnail: '/design/illustration/logos/cover.png',
-      images: ['/design/illustration/logos/1.png'],
-      category: 'illustration',
+      id: "ill3",
+      title: t.illWork3Title || "Logos",
+      description: t.illWork3Desc || "Diseño de logotipos e identidad visual",
+      thumbnail: "/design/illustration/logos/cover.png",
+      images: ["/design/illustration/logos/1.png"],
+      category: "illustration",
       comingSoon: true,
     },
     {
-      id: 'ill4',
-      title: t.illWork4Title || 'Concept Art',
-      description: t.illWork4Desc || 'Arte conceptual para videojuegos',
-      thumbnail: '/design/illustration/concept/cover.png',
-      images: ['/design/illustration/concept/1.png'],
-      category: 'illustration',
+      id: "ill4",
+      title: t.illWork4Title || "Concept Art",
+      description: t.illWork4Desc || "Arte conceptual para videojuegos",
+      thumbnail: "/design/illustration/concept/cover.png",
+      images: ["/design/illustration/concept/1.png"],
+      category: "illustration",
       comingSoon: true,
     },
     {
-      id: 'ill5',
-      title: t.illWork5Title || 'Stickers',
-      description: t.illWork5Desc || 'Set de stickers animados para mensajería',
-      thumbnail: '/design/illustration/stickers/cover.png',
-      images: ['/design/illustration/stickers/1.png'],
-      category: 'illustration',
+      id: "ill5",
+      title: t.illWork5Title || "Stickers",
+      description: t.illWork5Desc || "Set de stickers animados para mensajería",
+      thumbnail: "/design/illustration/stickers/cover.png",
+      images: ["/design/illustration/stickers/1.png"],
+      category: "illustration",
       comingSoon: true,
     },
     {
-      id: 'ill6',
-      title: t.illWork6Title || 'Book Illustrations',
-      description: t.illWork6Desc || 'Ilustraciones para libro infantil',
-      thumbnail: '/design/illustration/book/cover.png',
-      images: ['/design/illustration/book/1.png'],
-      category: 'illustration',
+      id: "ill6",
+      title: t.illWork6Title || "Book Illustrations",
+      description: t.illWork6Desc || "Ilustraciones para libro infantil",
+      thumbnail: "/design/illustration/book/cover.png",
+      images: ["/design/illustration/book/1.png"],
+      category: "illustration",
       comingSoon: true,
     },
 
     // ── 3D ────────────────────────────────────────────────────────────────
     {
-      id: '3d1',
-      title: t.work3d1Title || 'Chibis',
-      description: t.work3d1Desc || 'Colección de personajes chibi modelados en 3D en distintas poses y ángulos',
-      thumbnail: '/design/3d/chibis/1.png',
+      id: "3d1",
+      title: t.work3d1Title || "Chibis",
+      description:
+        t.work3d1Desc ||
+        "Colección de personajes chibi modelados en 3D en distintas poses y ángulos",
+      thumbnail: "/design/3d/chibis/1.png",
       images: [
-        '/design/3d/chibis/1.png',
-        '/design/3d/chibis/2.png',
-        '/design/3d/chibis/3.png',
-        '/design/3d/chibis/4.png',
-        '/design/3d/chibis/5.png',
+        "/design/3d/chibis/1.png",
+        "/design/3d/chibis/2.png",
+        "/design/3d/chibis/3.png",
+        "/design/3d/chibis/4.png",
+        "/design/3d/chibis/5.png",
       ],
-      category: '3d',
+      category: "3d",
     },
     {
-      id: '3d2',
-      title: t.work3d2Title || 'Mascotas 3D',
-      description: t.work3d2Desc || 'Mascotas virtuales modeladas en 3D',
-      thumbnail: '/design/3d/mascotas/1.png',
-      images: [
-        '/design/3d/mascotas/1.png',
-        '/design/3d/mascotas/2.png'
-      ],
-      category: '3d',
+      id: "3d2",
+      title: t.work3d2Title || "Mascotas 3D",
+      description: t.work3d2Desc || "Mascotas virtuales modeladas en 3D",
+      thumbnail: "/design/3d/mascotas/1.png",
+      images: ["/design/3d/mascotas/1.png", "/design/3d/mascotas/2.png"],
+      category: "3d",
     },
     {
-      id: '3d3',
-      title: t.work3d3Title || 'Guitarra 3D',
-      description: t.work3d3Desc || 'Modelado 3D de guitarra',
-      thumbnail: '/design/3d/guitarra/cover.png',
-      images: ['/design/3d/guitarra/1.png'],
-      category: '3d',
+      id: "3d3",
+      title: t.work3d3Title || "Guitarra 3D",
+      description: t.work3d3Desc || "Modelado 3D de guitarra",
+      thumbnail: "/design/3d/guitarra/cover.png",
+      images: ["/design/3d/guitarra/1.png"],
+      category: "3d",
       comingSoon: true,
     },
     {
-      id: '3d4',
-      title: t.work3d4Title || 'Iconos 3D',
-      description: t.work3d4Desc || 'Set de iconos modelados en 3D',
-      thumbnail: '/design/3d/iconos/cover.png',
-      images: ['/design/3d/iconos/1.png'],
-      category: '3d',
+      id: "3d4",
+      title: t.work3d4Title || "Iconos 3D",
+      description: t.work3d4Desc || "Set de iconos modelados en 3D",
+      thumbnail: "/design/3d/iconos/cover.png",
+      images: ["/design/3d/iconos/1.png"],
+      category: "3d",
       comingSoon: true,
     },
     {
-      id: '3d5',
-      title: t.work3d5Title || 'Product Visualization',
-      description: t.work3d5Desc || 'Renders fotorrealistas de productos',
-      thumbnail: '/design/3d/product/cover.png',
-      images: ['/design/3d/product/1.png'],
-      category: '3d',
+      id: "3d5",
+      title: t.work3d5Title || "Product Visualization",
+      description: t.work3d5Desc || "Renders fotorrealistas de productos",
+      thumbnail: "/design/3d/product/cover.png",
+      images: ["/design/3d/product/1.png"],
+      category: "3d",
       comingSoon: true,
     },
     {
-      id: '3d6',
-      title: t.work3d6Title || 'Low Poly Art',
-      description: t.work3d6Desc || 'Arte low poly y escenas estilizadas',
-      thumbnail: '/design/3d/lowpoly/cover.png',
-      images: ['/design/3d/lowpoly/1.png'],
-      category: '3d',
+      id: "3d6",
+      title: t.work3d6Title || "Low Poly Art",
+      description: t.work3d6Desc || "Arte low poly y escenas estilizadas",
+      thumbnail: "/design/3d/lowpoly/cover.png",
+      images: ["/design/3d/lowpoly/1.png"],
+      category: "3d",
       comingSoon: true,
     },
   ];
 
   const filteredProjects = galleryProjects.filter(
-    (project) => project.category === selectedCategory
+    (project) => project.category === selectedCategory,
   );
 
   const openModal = (project: GalleryProject) => {
@@ -233,7 +275,7 @@ export const Design = () => {
   const nextImage = () => {
     if (selectedProject) {
       setCurrentImageIndex((prev) =>
-        prev === selectedProject.images.length - 1 ? 0 : prev + 1
+        prev === selectedProject.images.length - 1 ? 0 : prev + 1,
       );
     }
   };
@@ -241,7 +283,7 @@ export const Design = () => {
   const prevImage = () => {
     if (selectedProject) {
       setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.images.length - 1 : prev - 1
+        prev === 0 ? selectedProject.images.length - 1 : prev - 1,
       );
     }
   };
@@ -250,34 +292,34 @@ export const Design = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!modalOpen || !selectedProject) return;
       switch (e.key) {
-        case 'ArrowLeft':
+        case "ArrowLeft":
           e.preventDefault();
           prevImage();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           e.preventDefault();
           nextImage();
           break;
-        case 'Escape':
+        case "Escape":
           e.preventDefault();
           closeModal();
           break;
       }
     };
-    if (modalOpen) window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    if (modalOpen) window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [modalOpen, selectedProject]);
 
   const getCategoryColor = () => {
     switch (selectedCategory) {
-      case 'ux-ui':
-        return theme === 'dark' ? '#EF4444' : '#3B82F6';
-      case 'illustration':
-        return theme === 'dark' ? '#F59E0B' : '#10B981';
-      case '3d':
-        return theme === 'dark' ? '#EC4899' : '#8B5CF6';
+      case "ux-ui":
+        return theme === "dark" ? "#EF4444" : "#3B82F6";
+      case "illustration":
+        return theme === "dark" ? "#F59E0B" : "#10B981";
+      case "3d":
+        return theme === "dark" ? "#EC4899" : "#8B5CF6";
       default:
-        return '#3B82F6';
+        return "#3B82F6";
     }
   };
 
@@ -285,84 +327,112 @@ export const Design = () => {
     <section
       id="design"
       className={`min-h-screen py-20 px-6 ${
-        theme === 'dark' ? 'bg-gray-900' : 'bg-white'
+        theme === "dark" ? "bg-gray-900" : "bg-white"
       }`}
     >
       <div className="max-w-7xl mx-auto">
         {/* Título */}
         <h2
           className={`text-4xl md:text-5xl font-bold text-center mb-4 ${
-            theme === 'dark' ? 'text-red-400' : 'text-blue-600'
+            theme === "dark" ? "text-red-400" : "text-blue-600"
           }`}
         >
-          {t.designWork || 'Diseño'}
+          {t.designWork || "Diseño"}
         </h2>
 
         <p
           className={`text-center text-lg mb-12 ${
-            theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            theme === "dark" ? "text-gray-400" : "text-gray-600"
           }`}
         >
-          {t.designWorkSubtitle || 'Proyectos creativos y trabajo de diseño'}
+          {t.designWorkSubtitle || "Proyectos creativos y trabajo de diseño"}
         </p>
 
         {/* Selector de categorías */}
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
           <button
-            onClick={() => setSelectedCategory('ux-ui')}
+            onClick={() => handleCategoryChange("ux-ui")}
             className={`px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 ${
-              selectedCategory === 'ux-ui' ? 'scale-110 shadow-2xl' : 'opacity-60'
+              selectedCategory === "ux-ui"
+                ? "scale-110 shadow-2xl"
+                : "opacity-60"
             }`}
             style={{
               backgroundColor:
-                selectedCategory === 'ux-ui'
-                  ? theme === 'dark' ? 'rgba(239,68,68,0.2)' : 'rgba(59,130,246,0.2)'
-                  : theme === 'dark' ? 'rgba(31,41,55,0.5)' : 'rgba(243,244,246,0.5)',
+                selectedCategory === "ux-ui"
+                  ? theme === "dark"
+                    ? "rgba(239,68,68,0.2)"
+                    : "rgba(59,130,246,0.2)"
+                  : theme === "dark"
+                    ? "rgba(31,41,55,0.5)"
+                    : "rgba(243,244,246,0.5)",
               color:
-                selectedCategory === 'ux-ui'
-                  ? theme === 'dark' ? '#EF4444' : '#3B82F6'
-                  : theme === 'dark' ? '#9CA3AF' : '#6B7280',
-              border: `2px solid ${selectedCategory === 'ux-ui' ? getCategoryColor() : 'transparent'}`,
+                selectedCategory === "ux-ui"
+                  ? theme === "dark"
+                    ? "#EF4444"
+                    : "#3B82F6"
+                  : theme === "dark"
+                    ? "#9CA3AF"
+                    : "#6B7280",
+              border: `2px solid ${selectedCategory === "ux-ui" ? getCategoryColor() : "transparent"}`,
             }}
           >
             UX/UI WORK
           </button>
 
           <button
-            onClick={() => setSelectedCategory('illustration')}
+            onClick={() => handleCategoryChange("illustration")}
             className={`px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 ${
-              selectedCategory === 'illustration' ? 'scale-110 shadow-2xl' : 'opacity-60'
+              selectedCategory === "illustration"
+                ? "scale-110 shadow-2xl"
+                : "opacity-60"
             }`}
             style={{
               backgroundColor:
-                selectedCategory === 'illustration'
-                  ? theme === 'dark' ? 'rgba(245,158,11,0.2)' : 'rgba(16,185,129,0.2)'
-                  : theme === 'dark' ? 'rgba(31,41,55,0.5)' : 'rgba(243,244,246,0.5)',
+                selectedCategory === "illustration"
+                  ? theme === "dark"
+                    ? "rgba(245,158,11,0.2)"
+                    : "rgba(16,185,129,0.2)"
+                  : theme === "dark"
+                    ? "rgba(31,41,55,0.5)"
+                    : "rgba(243,244,246,0.5)",
               color:
-                selectedCategory === 'illustration'
-                  ? theme === 'dark' ? '#F59E0B' : '#10B981'
-                  : theme === 'dark' ? '#9CA3AF' : '#6B7280',
-              border: `2px solid ${selectedCategory === 'illustration' ? getCategoryColor() : 'transparent'}`,
+                selectedCategory === "illustration"
+                  ? theme === "dark"
+                    ? "#F59E0B"
+                    : "#10B981"
+                  : theme === "dark"
+                    ? "#9CA3AF"
+                    : "#6B7280",
+              border: `2px solid ${selectedCategory === "illustration" ? getCategoryColor() : "transparent"}`,
             }}
           >
-            {t.illustration || 'ILUSTRACIÓN'}
+            {t.illustration || "ILUSTRACIÓN"}
           </button>
 
           <button
-            onClick={() => setSelectedCategory('3d')}
+            onClick={() => handleCategoryChange("3d")}
             className={`px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 ${
-              selectedCategory === '3d' ? 'scale-110 shadow-2xl' : 'opacity-60'
+              selectedCategory === "3d" ? "scale-110 shadow-2xl" : "opacity-60"
             }`}
             style={{
               backgroundColor:
-                selectedCategory === '3d'
-                  ? theme === 'dark' ? 'rgba(236,72,153,0.2)' : 'rgba(139,92,246,0.2)'
-                  : theme === 'dark' ? 'rgba(31,41,55,0.5)' : 'rgba(243,244,246,0.5)',
+                selectedCategory === "3d"
+                  ? theme === "dark"
+                    ? "rgba(236,72,153,0.2)"
+                    : "rgba(139,92,246,0.2)"
+                  : theme === "dark"
+                    ? "rgba(31,41,55,0.5)"
+                    : "rgba(243,244,246,0.5)",
               color:
-                selectedCategory === '3d'
-                  ? theme === 'dark' ? '#EC4899' : '#8B5CF6'
-                  : theme === 'dark' ? '#9CA3AF' : '#6B7280',
-              border: `2px solid ${selectedCategory === '3d' ? getCategoryColor() : 'transparent'}`,
+                selectedCategory === "3d"
+                  ? theme === "dark"
+                    ? "#EC4899"
+                    : "#8B5CF6"
+                  : theme === "dark"
+                    ? "#9CA3AF"
+                    : "#6B7280",
+              border: `2px solid ${selectedCategory === "3d" ? getCategoryColor() : "transparent"}`,
             }}
           >
             3D / EXPERIMENTS
@@ -377,9 +447,9 @@ export const Design = () => {
               onClick={() => openModal(project)}
               className={`group relative aspect-square rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${
                 project.comingSoon
-                  ? 'cursor-default'
-                  : 'cursor-pointer hover:scale-105'
-              } ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}
+                  ? "cursor-default"
+                  : "cursor-pointer hover:scale-105"
+              } ${theme === "dark" ? "bg-gray-800" : "bg-gray-100"}`}
               style={{
                 boxShadow: `0 10px 40px ${getCategoryColor()}40`,
                 animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both`,
@@ -389,14 +459,17 @@ export const Design = () => {
                 /* Placeholder Próximamente */
                 <div
                   className={`w-full h-full flex flex-col items-center justify-center gap-3 ${
-                    theme === 'dark'
-                      ? 'bg-gradient-to-br from-gray-700 to-gray-800'
-                      : 'bg-gradient-to-br from-gray-200 to-gray-300'
+                    theme === "dark"
+                      ? "bg-gradient-to-br from-gray-700 to-gray-800"
+                      : "bg-gradient-to-br from-gray-200 to-gray-300"
                   }`}
                 >
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center border-2"
-                    style={{ borderColor: getCategoryColor(), color: getCategoryColor() }}
+                    style={{
+                      borderColor: getCategoryColor(),
+                      color: getCategoryColor(),
+                    }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -421,7 +494,7 @@ export const Design = () => {
                   </span>
                   <span
                     className={`text-sm font-medium ${
-                      theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                      theme === "dark" ? "text-gray-400" : "text-gray-500"
                     }`}
                   >
                     {project.title}
@@ -438,10 +511,19 @@ export const Design = () => {
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
                     <div>
-                      <h3 className="text-white font-bold text-xl mb-2">{project.title}</h3>
-                      <p className="text-white/80 text-sm line-clamp-2">{project.description}</p>
+                      <h3 className="text-white font-bold text-xl mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/80 text-sm line-clamp-2">
+                        {project.description}
+                      </p>
                       <div className="mt-3 flex items-center gap-2 text-white/90 text-sm">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -470,13 +552,26 @@ export const Design = () => {
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fadeIn"
           onClick={closeModal}
         >
-          <div className="max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="max-w-6xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={closeModal}
               className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all z-10"
             >
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
@@ -494,22 +589,48 @@ export const Design = () => {
                 {selectedProject.images.length > 1 && (
                   <>
                     <button
-                      onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevImage();
+                      }}
                       className="absolute left-4 top-1/2 -translate-y-1/2 p-4 bg-black/50 hover:bg-black/70 rounded-full transition-all"
                       style={{ color: getCategoryColor() }}
                     >
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+                      <svg
+                        className="w-8 h-8"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={3}
+                          d="M15 19l-7-7 7-7"
+                        />
                       </svg>
                     </button>
 
                     <button
-                      onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextImage();
+                      }}
                       className="absolute right-4 top-1/2 -translate-y-1/2 p-4 bg-black/50 hover:bg-black/70 rounded-full transition-all"
                       style={{ color: getCategoryColor() }}
                     >
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-8 h-8"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={3}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </button>
 
@@ -530,9 +651,10 @@ export const Design = () => {
                       color: getCategoryColor(),
                     }}
                   >
-                    {selectedCategory === 'ux-ui' && 'UX/UI WORK'}
-                    {selectedCategory === 'illustration' && (t.illustration || 'ILUSTRACIÓN').toUpperCase()}
-                    {selectedCategory === '3d' && '3D / EXPERIMENTS'}
+                    {selectedCategory === "ux-ui" && "UX/UI WORK"}
+                    {selectedCategory === "illustration" &&
+                      (t.illustration || "ILUSTRACIÓN").toUpperCase()}
+                    {selectedCategory === "3d" && "3D / EXPERIMENTS"}
                   </span>
 
                   <h3
@@ -556,17 +678,26 @@ export const Design = () => {
                       {selectedProject.images.map((img, index) => (
                         <button
                           key={index}
-                          onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(index); }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentImageIndex(index);
+                          }}
                           className={`aspect-square rounded-lg overflow-hidden transition-all ${
                             index === currentImageIndex
                               ? `ring-4 scale-110 ${
-                                  selectedCategory === 'ux-ui'
-                                    ? theme === 'dark' ? 'ring-red-400' : 'ring-blue-600'
-                                    : selectedCategory === 'illustration'
-                                    ? theme === 'dark' ? 'ring-yellow-400' : 'ring-green-500'
-                                    : theme === 'dark' ? 'ring-pink-400' : 'ring-purple-600'
+                                  selectedCategory === "ux-ui"
+                                    ? theme === "dark"
+                                      ? "ring-red-400"
+                                      : "ring-blue-600"
+                                    : selectedCategory === "illustration"
+                                      ? theme === "dark"
+                                        ? "ring-yellow-400"
+                                        : "ring-green-500"
+                                      : theme === "dark"
+                                        ? "ring-pink-400"
+                                        : "ring-purple-600"
                                 }`
-                              : 'opacity-50 hover:opacity-100'
+                              : "opacity-50 hover:opacity-100"
                           }`}
                         >
                           <img
@@ -585,9 +716,12 @@ export const Design = () => {
                     {selectedProject.images.map((_, index) => (
                       <button
                         key={index}
-                        onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(index); }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(index);
+                        }}
                         className={`h-2 rounded-full transition-all ${
-                          index === currentImageIndex ? 'w-8' : 'w-2 opacity-50'
+                          index === currentImageIndex ? "w-8" : "w-2 opacity-50"
                         }`}
                         style={{ backgroundColor: getCategoryColor() }}
                       />

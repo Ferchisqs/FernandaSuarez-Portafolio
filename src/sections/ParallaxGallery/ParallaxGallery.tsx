@@ -46,8 +46,9 @@ export const ParallaxGallery = () => {
 
   return (
     <section
+    
       ref={sectionRef}
-      className={`py-20 px-6 overflow-hidden ${
+      className={`py-22 px-6 overflow-hidden ${
         theme === 'dark'
           ? 'bg-gradient-to-b from-gray-900 via-black to-gray-900'
           : 'bg-gradient-to-b from-gray-50 via-white to-gray-50'

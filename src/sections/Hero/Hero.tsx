@@ -51,7 +51,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen pt-24 pb-20 px-8 md:px-16 relative overflow-hidden flex items-center"
+      className="min-h-screen pt-24 pb-20 px-8 md:px-10 relative overflow-hidden flex items-center"
     >
       {/* Figuras de fondo animadas */}
       <BackgroundShapes />

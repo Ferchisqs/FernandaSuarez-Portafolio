@@ -18,7 +18,7 @@ export const MasonryGallery = () => {
     { id: '3', image: '/galleryTwo/3.jpg', title: 'Branding', category: 'Design', span: 'medium', comingSoon: true },
     { id: '4', image: '/galleryTwo/4.png', title: '3D Art', category: '3D', span: 'small' },
     { id: '5', image: '/galleryTwo/5.jpg', title: 'Mobile App', category: 'Development', span: 'large', comingSoon: true },
-    { id: '6', image: '/galleryTwo/6.jpg', title: 'Icon Set', category: 'Design', span: 'small', comingSoon: true },
+    { id: '6', image: '/galleryTwo/6.png', title: 'Logo Design', category: 'Design', span: 'small' },
     { id: '7', image: '/galleryTwo/7.png', title: 'Web Design', category: 'Design', span: 'medium' },
     { id: '8', image: '/galleryTwo/8.png', title: 'Map design', category: 'Art', span: 'small' },
   ];
