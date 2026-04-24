@@ -160,9 +160,15 @@ const handleCategoryChange = (category: "ux-ui" | "illustration" | "3d") => {
       title: t.illWork3Title || "Logos",
       description: t.illWork3Desc || "Diseño de logotipos e identidad visual",
       thumbnail: "/design/illustration/logos/cover.png",
-      images: ["/design/illustration/logos/1.png"],
+      images: [
+        "/design/illustration/logos/1.png",
+        "/design/illustration/logos/2.png",
+        "/design/illustration/logos/3.png",
+        "/design/illustration/logos/4.png",
+        "/design/illustration/logos/5.png",
+      ],
       category: "illustration",
-      comingSoon: true,
+      
     },
     {
       id: "ill4",

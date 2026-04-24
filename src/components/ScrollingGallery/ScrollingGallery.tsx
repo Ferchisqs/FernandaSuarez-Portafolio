@@ -14,7 +14,7 @@ export const ScrollingGallery = () => {
   const galleryItems: GalleryItem[] = [
     { id: '1', image: '/galleryThree/1.png', title: 'Character', color: '#3B82F6' },
     { id: '2', image: '/galleryThree/2.jpg', title: 'Character Design', color: '#10B981', comingSoon: true },
-    { id: '3', image: '/galleryThree/3.jpg', title: 'Brand Identity', color: '#F59E0B', comingSoon: true },
+    { id: '3', image: '/galleryThree/3.png', title: 'Brand Identity', color: '#F59E0B' },
     { id: '4', image: '/galleryThree/4.png', title: 'Portrait', color: '#8B5CF6' },
     { id: '5', image: '/galleryThree/5.jpg', title: 'App Design', color: '#EC4899', comingSoon: true },
     { id: '6', image: '/galleryThree/6.jpg', title: 'Illustration', color: '#06B6D4', comingSoon: true },
