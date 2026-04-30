@@ -89,7 +89,7 @@ export const Navbar = () => {
               </a>
 
               <a
-                href="www.linkedin.com/in/maria-fernanda-quezada-suárez-b7100024a"
+                href="https://www.linkedin.com/in/maria-fernanda-quezada-suárez-b7100024a"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={btnStyles}
