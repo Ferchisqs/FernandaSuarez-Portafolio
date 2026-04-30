@@ -22,7 +22,7 @@ export const Footer = () => {
       id: 'linkedin',
       title: 'LinkedIn',
       value: '/Maria Fernanda Quezada Suárez',
-      link: 'https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile',
+      link: 'www.linkedin.com/in/maria-fernanda-quezada-suárez-b7100024a',
       color: theme === 'dark' ? '#0A66C2' : '#0A66C2',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-12 h-12">
